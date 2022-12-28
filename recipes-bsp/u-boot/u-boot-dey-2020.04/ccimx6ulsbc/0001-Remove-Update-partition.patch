@@ -1,0 +1,36 @@
+From 26e0b9d968f6e2b6cbd6d6bd73848d192acd7411 Mon Sep 17 00:00:00 2001
+From: Alfonso <amartrey@digi.com>
+Date: Tue, 18 Jan 2022 09:52:09 +0000
+Subject: [PATCH] Remove Update partition
+
+Signed-off-by: Alfonso <amartrey@digi.com>
+---
+ include/configs/ccimx6ul_common.h | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/include/configs/ccimx6ul_common.h b/include/configs/ccimx6ul_common.h
+index 946d9b70cc..aceb91a215 100644
+--- a/include/configs/ccimx6ul_common.h
++++ b/include/configs/ccimx6ul_common.h
+@@ -229,7 +229,7 @@
+ #define UBIVOLS_256MB			"ubi create " CONFIG_LINUX_PARTITION " c00000;" \
+ 					"ubi create " CONFIG_RECOVERY_PARTITION " e00000;" \
+ 					"ubi create " ROOTFS_PARTITION " 7e00000;" \
+-					"ubi create update;"
++					"ubi create update;"					
+ #define UBIVOLS_512MB			"ubi create " CONFIG_LINUX_PARTITION " 1800000;" \
+ 					"ubi create " CONFIG_RECOVERY_PARTITION " 2000000;" \
+ 					"ubi create " ROOTFS_PARTITION " 10000000;" \
+@@ -298,8 +298,7 @@
+ 					"1m(safe)," \
+ 					"12m(" CONFIG_LINUX_PARTITION ")," \
+ 					"14m(" CONFIG_RECOVERY_PARTITION ")," \
+-					"122m(" ROOTFS_PARTITION ")," \
+-					"-(update)"
++					"-(" ROOTFS_PARTITION ")"
+ #define MTDPARTS_512MB			"mtdparts=" CONFIG_NAND_NAME ":" \
+ 					__stringify(UBOOT_PART_SIZE_BIG) "m(" CONFIG_UBOOT_PARTITION ")," \
+ 					__stringify(ENV_PART_SIZE_BIG) "m(environment)," \
+-- 
+2.25.1
+

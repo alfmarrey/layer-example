@@ -1,0 +1,28 @@
+From d97525dd51ad0c3c71b2b347f189db2942f8beb8 Mon Sep 17 00:00:00 2001
+From: Alfonso Martin <amartrey@digi.com>
+Date: Mon, 17 Jan 2022 11:53:32 +0100
+Subject: [PATCH] keeping 3V3_ext enabled in suspend
+
+Signed-off-by: Alfonso Martin <amartrey@digi.com>
+---
+ arch/arm/boot/dts/imx6ul-ccimx6ul.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/imx6ul-ccimx6ul.dtsi b/arch/arm/boot/dts/imx6ul-ccimx6ul.dtsi
+index 0a9458b72544..c4ba311cb8f8 100644
+--- a/arch/arm/boot/dts/imx6ul-ccimx6ul.dtsi
++++ b/arch/arm/boot/dts/imx6ul-ccimx6ul.dtsi
+@@ -180,8 +180,9 @@
+ 				regulator-ramp-delay = <6250>;
+ 				regulator-always-on;
+ 				regulator-boot-on;
++				regulator-on-in-suspend;
+ 				regulator-state-mem {
+-					regulator-off-in-suspend;
++					regulator-on-in-suspend;
+ 				};
+ 			};
+ 
+-- 
+2.25.1
+
